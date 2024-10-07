@@ -70,14 +70,14 @@ func (p *pinger) pingFirst(ctx context.Context) error {
 	}
 	resp, err := cl.Do(req)
 	if err != nil {
-		return fmt.Errorf("failed to ping  first end: %s", err)
+		return fmt.Errorf("failed to ping first end: %s", err)
 	}
 	defer func() {
 		_ = resp.Body.Close()
 	}()
 
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("failed to ping  first end: got non-OK status %d", resp.StatusCode)
+		return fmt.Errorf("failed to ping first end: got non-OK status %d", resp.StatusCode)
 	}
 	return nil
 }
